@@ -240,7 +240,7 @@ house:'<path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10Z"/>'
 };
 function iconMarkup(name,size=18){return '<svg viewBox="0 0 24 24" width="'+size+'" height="'+size+'" aria-hidden="true" focusable="false">'+(iconPaths[name]||iconPaths.sparkles)+'</svg>'}
 function icon(name,size=18){return '<span class="ui-icon" aria-hidden="true">'+iconMarkup(name,size)+'</span>'}
-document.querySelectorAll("[data-icon]").forEach(el=>{const name=el.dataset.icon;el.innerHTML=iconMarkup(name)});
+document.querySelectorAll(".brandmark[data-icon],.icon-slot[data-icon]").forEach(el=>{const name=el.dataset.icon;el.innerHTML=iconMarkup(name)});
 document.querySelectorAll(".section-head h2[data-icon]").forEach(el=>{const name=el.dataset.icon;el.innerHTML=icon(name,19)+el.textContent});
 function iconForTask(title){const t=title.toLowerCase();if(/school|class|lesson/.test(t))return"school";if(/homework|academics|revision|study|prepare for class/.test(t))return"book-open";if(/coding|skill|product|build|develop/.test(t))return"code";if(/money|paid|earning|financial|offer|business/.test(t))return"wallet";if(/break|snack|breakfast|lunch|dinner/.test(t))return"coffee";if(/sleep|bedtime|wind down/.test(t))return"moon";if(/family|free time|hobbies|recreation|relax/.test(t))return"house";if(/wake|morning/.test(t))return"sunrise";if(/review|planning/.test(t))return"clipboard-check";if(/travel|journey/.test(t))return"arrow-right";return"target"}
 
