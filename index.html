@@ -35,17 +35,90 @@ button{font:inherit;color:inherit;cursor:pointer}button:focus-visible,a:focus-vi
 .milestones{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}.mile{border:1px solid var(--line);border-radius:14px;padding:13px;background:rgba(255,255,255,.04)}.mile strong{display:block;font-size:17px;letter-spacing:-.04em}.mile span{font-size:11px;color:var(--muted)}
 .pillars{display:grid;grid-template-columns:1fr 1fr;gap:9px}.pillar{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:14px;padding:12px;background:rgba(255,255,255,.04)}.pillar input{accent-color:#b9d0ff;width:17px;height:17px;margin:2px 0 0}.pillar b{display:block;font-size:13px}.pillar small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
 textarea{width:100%;resize:vertical;min-height:85px;border:1px solid var(--line);background:rgba(0,0,0,.15);border-radius:13px;padding:12px;color:var(--ink);font:inherit;font-size:13px}textarea::placeholder{color:#9eabc2}.review-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.primary{border:0;border-radius:999px;background:linear-gradient(110deg,#b9f0d5,#c7d9ff 55%,#e2caff);color:#182640;padding:10px 16px;font-weight:750;font-size:13px}.secondary{border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.07);padding:10px 16px;font-size:13px}
-.footer{text-align:center;color:#d2d9e8;font-size:12px;padding:26px 0 0}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;background:#e5edff;color:#1a2942;padding:10px 16px;border-radius:99px;font-size:13px;font-weight:700;transition:.25s;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}\n#confetti{position:fixed;inset:0;width:100%;height:100%;z-index:20;pointer-events:none}\n.review-complete{color:#baf2d5;font-weight:750}\n.review-complete:before{content:"✦ ";color:#d9c4ff}
+.footer{text-align:center;color:#d2d9e8;font-size:12px;padding:26px 0 0}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;background:#e5edff;color:#1a2942;padding:10px 16px;border-radius:99px;font-size:13px;font-weight:700;transition:.25s;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}
+#confetti{position:fixed;inset:0;width:100%;height:100%;z-index:20;pointer-events:none}
+.review-complete{color:#baf2d5;font-weight:750}
+.review-complete:before{content:"✦ ";color:#d9c4ff}
 body.light{--ink:#1c2a40;--muted:#52637d;--line:rgba(30,48,75,.15);--glass:rgba(255,255,255,.57)}body.light .hero p,body.light .clock,body.light .footer{color:#30435d}body.light .eyebrow{color:#334e72}body.light .event time{color:#4c607c}body.light .event .what{color:#1c2a40}body.light .track ul{color:#263b57}body.light .pill,body.light .ghost{color:#20324d;background:rgba(255,255,255,.35)}body.light .tag{color:#2c4569}body.light .tag.money{color:#176344}body.light .tag.rest{color:#69458a}
 @media(max-width:700px){.wrap{width:min(100% - 24px,600px);padding-top:18px}.top{margin-bottom:38px}.stats{gap:7px}.stat{padding:13px}.stat strong{font-size:21px}.panel{padding:16px}.event{grid-template-columns:92px 1fr;gap:8px}.event .tag{grid-column:2;justify-self:start}.business-grid{grid-template-columns:1fr}.roadmap{grid-template-columns:1fr 1fr}.milestones{grid-template-columns:repeat(2,1fr)}.pillars{grid-template-columns:1fr}.hero h1{font-size:54px}.top-actions .ghost{padding:8px 10px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+/* Extra depth: keep the original mint / ice-blue / lavender palette. */
+body{
+  background:
+    radial-gradient(ellipse at 8% 12%,rgba(155,228,192,.19),transparent 34%),
+    radial-gradient(ellipse at 92% 10%,rgba(216,184,255,.20),transparent 32%),
+    radial-gradient(ellipse at 72% 76%,rgba(169,199,255,.18),transparent 38%),
+    radial-gradient(ellipse at 18% 88%,rgba(155,228,192,.10),transparent 34%),
+    linear-gradient(138deg,#101a30 0%,#1a2542 44%,#202c49 72%,#182b3d 100%);
+}
+#sky:after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 18% 22%,rgba(155,228,192,.15),transparent 38%),
+    radial-gradient(ellipse at 82% 30%,rgba(216,184,255,.16),transparent 40%),
+    linear-gradient(125deg,rgba(169,199,255,.06),transparent 48%,rgba(155,228,192,.07));
+}
+.hero h1 #splashText{
+  display:inline;
+  color:transparent;
+  background:linear-gradient(105deg,#c4f3dc 0%,#b9d2ff 48%,#e2caff 78%,#c4f3dc 100%);
+  background-size:220% auto;
+  -webkit-background-clip:text;background-clip:text;
+  animation:splashShine 9s ease-in-out infinite alternate;
+  text-wrap:balance;
+}
+@keyframes splashShine{to{background-position:100% center}}
+.stat,.panel,.day-card{
+  background:
+    radial-gradient(ellipse at 0% 0%,rgba(155,228,192,.105),transparent 48%),
+    radial-gradient(ellipse at 100% 0%,rgba(216,184,255,.10),transparent 48%),
+    linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025)),
+    var(--glass);
+  box-shadow:0 22px 70px rgba(0,0,0,.16),inset 0 1px rgba(255,255,255,.07);
+}
+.stat:nth-child(2),.track:nth-child(2),.step:nth-child(2),.mile:nth-child(2){
+  background-image:linear-gradient(145deg,rgba(169,199,255,.12),rgba(216,184,255,.055));
+}
+.stat:nth-child(3),.track:nth-child(1),.step:nth-child(3),.mile:nth-child(3){
+  background-image:linear-gradient(145deg,rgba(216,184,255,.12),rgba(155,228,192,.045));
+}
+.track,.step,.mile,.pillar,.now-box{
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.018)),
+    radial-gradient(ellipse at 0% 0%,rgba(169,199,255,.09),transparent 70%);
+  box-shadow:inset 0 1px rgba(255,255,255,.045);
+}
+.event{background:linear-gradient(100deg,rgba(169,199,255,.055),rgba(216,184,255,.035),rgba(155,228,192,.035));}
+.event:hover{background:linear-gradient(100deg,rgba(155,228,192,.13),rgba(169,199,255,.12),rgba(216,184,255,.12));}
+.primary{
+  background:linear-gradient(105deg,#b9f0d5 0%,#c7d9ff 52%,#e2caff 100%);
+  box-shadow:0 8px 28px rgba(169,199,255,.19),inset 0 1px rgba(255,255,255,.55);
+  transition:transform .2s,box-shadow .2s,filter .2s;
+}
+.primary:hover{transform:translateY(-2px);box-shadow:0 12px 34px rgba(169,199,255,.28);filter:saturate(1.08)}
+.tab.active{background:linear-gradient(110deg,#c4f3dc,#c7d9ff 55%,#e2caff);border-color:transparent;box-shadow:0 5px 22px rgba(169,199,255,.18)}
+.progress-line span{background:linear-gradient(90deg,#9be4c0 0%,#a9c7ff 52%,#d8b8ff 100%);box-shadow:0 0 14px rgba(169,199,255,.28)}
+#confetti{
+  display:block;position:fixed;inset:0;width:100vw;height:100vh;
+  z-index:9999;pointer-events:none;
+}
+.toast{z-index:10000;box-shadow:0 8px 30px rgba(0,0,0,.2)}
+body.light{
+  background:
+    radial-gradient(ellipse at 8% 12%,rgba(155,228,192,.27),transparent 35%),
+    radial-gradient(ellipse at 92% 10%,rgba(216,184,255,.25),transparent 34%),
+    radial-gradient(ellipse at 70% 80%,rgba(169,199,255,.25),transparent 40%),
+    linear-gradient(138deg,#e9f5f1,#e9efff 54%,#f1eafa);
+}
+
 </style>
 </head>
 <body>
 <div id="sky" class="night" aria-hidden="true"><canvas id="stars"></canvas><div class="celestial"></div><div class="cloud one"></div><div class="cloud two"></div><div class="cloud three"></div><div class="horizon"></div></div>
 <div class="wrap">
 <header class="top"><div class="brand"><div class="brandmark">✦</div><span>PROJECT IDEAL</span></div><div class="top-actions"><span class="pill" id="weatherLabel">✦ Evening sky</span><button class="ghost" id="skyToggle" type="button">☾ Night</button></div></header>
-<section class="hero"><div class="eyebrow">A system for becoming capable</div><h1>Make your days<br><span>count.</span></h1><p>School first. Build useful skills. Earn your first money. Create something that lasts.</p><div class="clock" id="clock">Loading local time…</div></section>
+<section class="hero"><div class="eyebrow">A system for becoming capable</div><h1><span id="splashText">Make your days count.</span></h1><p>School first. Build useful skills. Earn your first money. Create something that lasts.</p><div class="clock" id="clock">Loading local time…</div></section>
 <section class="stats"><div class="stat"><strong>21:00</strong><span>Daily sleep target</span></div><div class="stat"><strong>3.5 hrs</strong><span>Weekly business focus</span></div><div class="stat"><strong>6 pillars</strong><span>One weekly review</span></div></section>
 <section class="panel" id="schedule"><div class="section-head"><h2>✧ Your weekly rhythm</h2><div class="schedule-tools"><span class="schedule-clock" id="scheduleClock">Sweden time · --:--:--</span><button class="today-btn" id="todayBtn" type="button">↻ Today · Auto</button></div></div><div class="tabs" id="dayTabs"><button class="tab active" data-day="monday">Mon</button><button class="tab" data-day="tuesday">Tue</button><button class="tab" data-day="wednesday">Wed</button><button class="tab" data-day="thursday">Thu</button><button class="tab" data-day="friday">Fri</button><button class="tab" data-day="saturday">Sat</button><button class="tab" data-day="sunday">Sun</button></div><div class="day-title"><h3 id="dayName">Monday</h3><span class="sub" id="dayType">School day · 07:00 start</span></div><div class="now-card"><div class="now-box"><small>Current block</small><strong id="currentBlock">Loading…</strong><span id="currentMeta">Checking Sweden time</span><div class="now-progress"><span id="blockProgress"></span></div></div><div class="now-box"><small>Up next</small><strong id="nextBlock">Loading…</strong><span id="nextMeta">Your next scheduled block</span></div></div><div class="timeline" id="timeline"></div></section>
 <section class="panel"><div class="section-head"><h2>✧ The money plan</h2><span class="sub">Two tracks, different speeds</span></div><div class="business-grid"><article class="track"><div class="label">Track A · Short term</div><div class="number">100 SEK</div><h3>First real earning</h3><p>Find one small, legitimate paid task through family, relatives or people your parents know.</p><ul><li>Basic tech help</li><li>Organising digital files</li><li>Simple presentations</li><li>Website work only when someone needs it</li></ul></article><article class="track"><div class="label">Track B · Long term</div><div class="number">Build an asset</div><h3>Digital product or software</h3><p>Find a recurring problem, validate demand, then build the smallest useful solution.</p><ul><li>Research before building</li><li>Test with real potential users</li><li>Improve from feedback</li><li>Build repeatable distribution</li></ul></article></div></section>
@@ -69,6 +142,32 @@ body.light{--ink:#1c2a40;--muted:#52637d;--line:rgba(30,48,75,.15);--glass:rgba(
 <footer class="footer">PROJECT IDEAL · Consistency over perfection.</footer>
 </div><canvas id="confetti" aria-hidden="true"></canvas><div class="toast" id="toast">Saved</div>
 <script>
+
+const splashLines=[
+  "Small steps. Serious results.",
+  "Build what your future needs.",
+  "Make progress inevitable.",
+  "One focused day at a time.",
+  "Your future is built today.",
+  "Consistency compounds.",
+  "Less planning. More finishing.",
+  "Become someone you can rely on.",
+  "Do the work. Keep your word.",
+  "Start where you are. Build from there.",
+  "A little better, every single week.",
+  "Make today count for something."
+];
+const splash=document.getElementById("splashText");
+if(splash){
+  let pick=Math.floor(Math.random()*splashLines.length);
+  try{
+    const previous=sessionStorage.getItem("ideal-splash");
+    if(splashLines.length>1&&splashLines[pick]===previous)pick=(pick+1+Math.floor(Math.random()*(splashLines.length-1)))%splashLines.length;
+    sessionStorage.setItem("ideal-splash",splashLines[pick]);
+  }catch(e){}
+  splash.textContent=splashLines[pick];
+}
+
 const schedules={
 monday:{name:"Monday",type:"School day · 07:00 start",items:[["07:00–07:15","Wake up, wash and get dressed",""],["07:15–07:35","Breakfast",""],["07:35–07:45","Prepare and leave",""],["07:45–15:30","School and journey home",""],["15:30–16:15","Snack, relax and decompress","rest"],["16:15–17:15","Homework and revision",""],["17:15–17:45","Break","rest"],["17:45–18:15","Financial intelligence",""],["18:15–19:30","Dinner, family and free time","rest"],["19:30–20:00","Hobbies or unfinished schoolwork",""],["20:00–20:30","Prepare for tomorrow and tidy up",""],["20:30–21:00","Wind down","rest"],["21:00","Sleep","rest"]]},
 tuesday:{name:"Tuesday",type:"School day · Short-term income focus",items:[["07:00–07:45","Morning routine and breakfast",""],["07:45–15:30","School and journey home",""],["15:30–16:15","Snack and decompress","rest"],["16:15–17:15","Homework and revision",""],["17:15–17:45","Break","rest"],["17:45–18:15","Find potential paid tasks","money"],["18:15–19:30","Dinner, family and free time","rest"],["19:30–20:00","Hobbies or unfinished schoolwork",""],["20:00–20:30","Prepare for tomorrow",""],["20:30–21:00","Wind down","rest"],["21:00","Sleep","rest"]]},
@@ -98,7 +197,55 @@ function tick(){const d=new Date();document.getElementById("clock").textContent=
 const canvas=document.getElementById("stars"),ctx=canvas.getContext("2d");let stars=[];function resize(){const ratio=Math.min(devicePixelRatio||1,2);canvas.width=innerWidth*ratio;canvas.height=innerHeight*ratio;ctx.setTransform(ratio,0,0,ratio,0,0);stars=Array.from({length:Math.min(150,Math.floor(innerWidth/8))},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight*.78,r:Math.random()*1.4+.25,a:Math.random(),s:Math.random()*.012+.003}))}function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);for(const s of stars){s.a+=s.s;if(s.a>1||s.a<0)s.s*=-1;ctx.globalAlpha=.25+Math.abs(Math.sin(s.a))*0.7;ctx.fillStyle="#fff";ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill()}ctx.globalAlpha=1;requestAnimationFrame(draw)}addEventListener("resize",resize);resize();draw();
 const boxes=[...document.querySelectorAll("[data-pillar]")],notes=document.getElementById("reviewNotes"),progress=document.getElementById("reviewProgress"),count=document.getElementById("reviewCount");let reviewCelebrated=false;function updateProgress(){const n=boxes.filter(b=>b.checked).length;progress.style.width=(n/6*100)+"%";count.textContent=n===6?"6 of 6 pillars reviewed · Ready to save":n+" of 6 pillars reviewed";count.classList.toggle("review-complete",n===6)}boxes.forEach(b=>b.addEventListener("change",updateProgress));try{const saved=JSON.parse(localStorage.getItem("ideal-review")||"{}");boxes.forEach(b=>b.checked=!!saved[b.dataset.pillar]);notes.value=saved.notes||"";reviewCelebrated=!!saved.completed}catch(e){}updateProgress();
 const toast=document.getElementById("toast");function showToast(msg){toast.textContent=msg;toast.classList.add("show");setTimeout(()=>toast.classList.remove("show"),2100)}
-function launchConfetti(){if(window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;const canvas=document.getElementById("confetti"),ctx=canvas.getContext("2d"),ratio=Math.min(devicePixelRatio||1,2),w=innerWidth,h=innerHeight;canvas.width=w*ratio;canvas.height=h*ratio;ctx.setTransform(ratio,0,0,ratio,0,0);const palette=["#9be4c0","#a9c7ff","#d8b8ff","#ffe3a6","#ffb7c5","#ffffff"];const pieces=Array.from({length:145},()=>({x:w*.5+(Math.random()-.5)*Math.min(w*.7,520),y:h*.34+(Math.random()-.5)*90,vx:(Math.random()-.5)*8,vy:-Math.random()*9-3,gravity:.19+Math.random()*.1,rotation:Math.random()*Math.PI,spin:(Math.random()-.5)*.22,size:4+Math.random()*6,color:palette[Math.floor(Math.random()*palette.length)],shape:Math.random()>.5?"rect":"circle",life:0}));const start=performance.now();function frame(now){ctx.clearRect(0,0,w,h);const elapsed=now-start;for(const p of pieces){p.x+=p.vx;p.y+=p.vy;p.vy+=p.gravity;p.vx*=.994;p.rotation+=p.spin;p.life++;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rotation);ctx.globalAlpha=Math.max(0,1-elapsed/2800);ctx.fillStyle=p.color;if(p.shape==="rect")ctx.fillRect(-p.size/2,-p.size/3,p.size,p.size*.65);else{ctx.beginPath();ctx.arc(0,0,p.size/2,0,Math.PI*2);ctx.fill()}ctx.restore()}if(elapsed<2800)requestAnimationFrame(frame);else ctx.clearRect(0,0,w,h)}requestAnimationFrame(frame)}
+function launchConfetti(){
+  const canvas=document.getElementById("confetti");
+  if(!canvas)return;
+  const ctx=canvas.getContext("2d");
+  if(!ctx)return;
+  if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+    const review=boxes[0]?.closest(".panel");
+    if(review){review.animate([{boxShadow:"0 0 0 rgba(185,240,213,0)"},{boxShadow:"0 0 42px rgba(185,240,213,.42)"},{boxShadow:"0 0 0 rgba(185,240,213,0)"}],{duration:1100});}
+    return;
+  }
+  const ratio=Math.min(window.devicePixelRatio||1,2);
+  let w=window.innerWidth,h=window.innerHeight;
+  canvas.width=Math.round(w*ratio);canvas.height=Math.round(h*ratio);
+  canvas.style.width=w+"px";canvas.style.height=h+"px";
+  ctx.setTransform(ratio,0,0,ratio,0,0);
+  const palette=["#9be4c0","#b9f0d5","#a9c7ff","#c7d9ff","#d8b8ff","#e2caff","#ffffff"];
+  const pieces=Array.from({length:220},(_,i)=>{
+    const side=i%2===0?-1:1;
+    return{
+      x:w*.5+(Math.random()-.5)*Math.min(w*.22,180),
+      y:h*.38+(Math.random()-.5)*35,
+      vx:(Math.random()*5+1.5)*side,
+      vy:-Math.random()*10-3,
+      gravity:.19+Math.random()*.09,
+      rotation:Math.random()*Math.PI*2,
+      spin:(Math.random()-.5)*.24,
+      width:4+Math.random()*6,
+      height:5+Math.random()*10,
+      color:palette[Math.floor(Math.random()*palette.length)],
+      circle:Math.random()>.72
+    };
+  });
+  const startTime=performance.now();
+  function frame(now){
+    const elapsed=now-startTime;
+    ctx.clearRect(0,0,w,h);
+    for(const p of pieces){
+      p.x+=p.vx;p.y+=p.vy;p.vy+=p.gravity;p.vx*=.996;p.rotation+=p.spin;
+      ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rotation);
+      ctx.globalAlpha=Math.max(0,1-elapsed/3600);ctx.fillStyle=p.color;
+      if(p.circle){ctx.beginPath();ctx.arc(0,0,p.width*.55,0,Math.PI*2);ctx.fill();}
+      else{ctx.fillRect(-p.width/2,-p.height/2,p.width,p.height);}
+      ctx.restore();
+    }
+    if(elapsed<3600)requestAnimationFrame(frame);
+    else{ctx.clearRect(0,0,w,h);canvas.width=canvas.width;}
+  }
+  requestAnimationFrame(frame);
+}
 document.getElementById("saveReview").addEventListener("click",()=>{const complete=boxes.every(b=>b.checked),data={notes:notes.value,completed:complete};boxes.forEach(b=>data[b.dataset.pillar]=b.checked);try{localStorage.setItem("ideal-review",JSON.stringify(data));if(complete&&!reviewCelebrated){reviewCelebrated=true;showToast("Sunday review complete — excellent work!");launchConfetti()}else if(complete){showToast("Review saved · All six pillars complete")}else{reviewCelebrated=false;showToast("Weekly review saved on this device")}}catch(e){showToast("Storage unavailable in this browser")}});
 document.getElementById("resetReview").addEventListener("click",()=>{boxes.forEach(b=>b.checked=false);notes.value="";reviewCelebrated=false;updateProgress();try{localStorage.removeItem("ideal-review")}catch(e){}showToast("Review reset")});
 </script>
